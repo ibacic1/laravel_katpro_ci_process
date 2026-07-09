@@ -36,3 +36,25 @@ jobs:
 
         - name: Clear Laravel Cache
           run: php artisan optimize:clear
+
+          - name: Verify Laravel application
+          
+      run: php artisan --version
+
+    #POPIS RUTA
+    - name: Popis ruta
+      run: php artisan route:list
+
+    #DODAVANJE BAZE/MIGRACIJA
+    - name: Run database migrations
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: ":memory:"
+      run: php artisan migrate --force
+
+    #DODAVANJE PHP UNIT TESTOVA
+    - name: Run PHPUnit Tests
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: ":memory:"
+      run: php artisan test
