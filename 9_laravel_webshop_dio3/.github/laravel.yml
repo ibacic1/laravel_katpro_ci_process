@@ -33,3 +33,6 @@ jobs:
 
       - name: Verify Laravel application
         run: php artisan --version
+
+        - name: Clear Laravel Cache
+          run: php artisan optimize:clear
