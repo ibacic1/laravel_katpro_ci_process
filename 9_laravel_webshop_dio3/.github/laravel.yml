@@ -30,3 +30,6 @@ jobs:
 
       - name: Build Vite assets
         run: npm run build
+
+      - name: Verify Laravel application
+        run: php artisan --version
